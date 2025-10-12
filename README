@@ -1,2 +1,20 @@
-Project
-ER diagram: https://mm.tt/map/3832983417?t=7iSZDrhNZB
+Schedule of Tasks:
+
+	Oct. 13 – 19: Database schema (ER diagram). https://mm.tt/map/3832983417?t=7iSZDrhNZB
+	Oct. 20 – 26: Landing page design(JS), Schema implementation (SQL).
+	Oct. 27 – Nov. 2: Data search and insertion into database(SQL)
+	Nov. 3 – 9: Database implementation into webpage(JS).
+	Nov. 10 – 16: Search functionality refinement.
+	Nov. 17 – 23: Powerpoint for final presentation.
+	Nov. 24 – 30: Review.
+	Dec. 1: Submission.
+	
+Division of tasks:
+
+Willow Chadbourne and Austin Boone on back-end.
+Andrew Merritt and Daniel Vigano on front-end.
+
+Paragraph:
+
+We are working on a website that incorporates a movie database because two of the members of our team had worked on something along the topic for the Homework assignment. The website will allow search/filtering based upon year, genre, name and international sales. 
+
