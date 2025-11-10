@@ -1,0 +1,55 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html, header{
+    position: fixed;
+    width: 100%;
+    color:white;
+    text-align: center;
+    background-color: black;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    z-index: 0;
+
+}
+
+#searchInput {
+    width: 300px;
+    height: 25px;
+    z-index: 1000;
+}
+
+#searchButton{
+    height: 30px;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('img/background.jpg') center center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  flex-direction: column;
+  z-index: -1;
+}
+
+.vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+  z-index: 1;
+}
+
