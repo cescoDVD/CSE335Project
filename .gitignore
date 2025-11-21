@@ -1,4 +1,4 @@
 # Ignore node modules folder to avoid large repo size
 node_modules/
 # Ignore Database connection to avoid security issues
-db,js
+db.js
