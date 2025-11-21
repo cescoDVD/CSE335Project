@@ -1,0 +1,2 @@
+# Ignore node modules folder to avoid large repo size
+node_modules/
