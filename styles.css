@@ -21,19 +21,20 @@ html, main{
 }
 
 #searchInput {
-  
-    position: fixed;
-    top: 50%;
-    left: 40%;
-    width: 300px;
-    height: 25px;
+  position: fixed;
+  top: 50%;
+  left: 51%;
+  transform: translate(-50%,-50%);
+  width: 300px;
+  height: 25px;
 }
 
 #searchButton{
-    position: fixed;
-    top: 50%;
-    left: 35%;
-    height: 30px;
+  position: fixed;
+  top: 50%;
+  left: 36%;
+  transform: translate(-50%,-50%);
+  height: 30px;
 }
 
 .background {
