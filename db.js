@@ -3,6 +3,7 @@ import mysql from 'mysql2';
 import dotenv from 'dotenv';
 dotenv.config()
 
+//connects to database: use a .env file to set up macroes
 const pool = mysql.createConnection({
   host: process.env.MYSQL_HOST,
   port: process.env.MYSQL_PORT,
@@ -11,11 +12,19 @@ const pool = mysql.createConnection({
   database: process.env.MYSQL_DATABASE
 }).promise();
 
-async function getMovies() {
+//function to get all movies
+export async function getMovies() {
   const [rows] = await pool.query("SELECT * FROM movies")
 //const rows = result[0]
   return rows
 }
-
-const movies = await getMovies()
-console.log(movies)
+ 
+//function to get only one movie
+export async function getMovie(eidr) {
+  const [rows] = await pool.query(`
+    SELECT * 
+    FROM movies
+    WHERE eidr = ?
+    `, [eidr])
+  return rows
+}
