@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" type="text/css" href="../styles.css">
+  <link rel="stylesheet" type="text/css" href="./styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Movie Search</title>
 </head>
@@ -16,7 +16,22 @@
   <div class="background"></div>
 
     <main>
-      <a href="search.html"><button id="searchButton">Search</button></a>
+        <table border="1">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Genre</th>
+      <th>Director</th>
+    </tr>
+  </thead>
+  <tbody id="movies-body">
+    <!-- JS will insert rows here -->
+  </tbody>
+</table>
+
+<script src="table.js"></script>
+
     </main>
     
   <script src="index.js"></script>

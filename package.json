@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Schedule of Tasks:",
   "type": "module",
-  "main": "script.js",
+  "main": "server.js",
   "scripts": {
     "dev": "npx nodemon app.js" 
   },
