@@ -1,8 +1,21 @@
 console.log('table.js loaded');
 
+
+
 async function loadMovies() {
   try {
-    const res = await fetch('/movies');
+    const eidr = document.getElementById('eidr').value;
+    const genre = document.getElementById('Genre').value;
+    console.log(eidr);
+    if (eidr == "" && genre == ""){
+      const res = await fetch('/movies');
+    } else if (eidr != null){
+      const res = await fetch(`/movies/?:eidr=${eidr}`);
+    } else if (eidr == null && genre != null){
+      const res = await fetch(`/movies/?:genre=${genre}`);
+    }
+
+
     console.log('status', res.status);
     const movies = await res.json();
     console.log('movies', movies);

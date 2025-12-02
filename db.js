@@ -16,7 +16,7 @@ const pool = mysql.createConnection({
 export async function getMovies() {
  
   const [rows] = await pool.query(`SELECT * FROM G9.movies`)
-  return rows[0]
+  return rows
 }
 
 export async function orderBy(order) {
