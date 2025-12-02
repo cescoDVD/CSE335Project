@@ -1,6 +1,6 @@
 import express from 'express'
 
-import  {getMovies, getMovie}  from './db.js'
+import  {getMovies, getMovie, getGenre, getByDirector}  from './db.js'
 
 const app =  express()
 
@@ -16,6 +16,20 @@ app.get("/movies/:eidr", async (req,res) => {
     const eidr = req.params.eidr
     const movie = await getMovie(eidr)
     res.json(movie)
+})
+
+app.get("movies/:genre", async (req,res)=> {
+    const genre = req.params.genre
+    const order_by = req.params.order_by ? req.params.genre : "none"
+    const movies = await getGenre(genre, order_by)
+    res.json(movies)
+})
+
+app.get("movies/:director", async (req, res) => {
+    const director = req.params.director
+    const order_by = req.params.order_by ? req.params.genre : "none"
+    const movies = await getByDirector(director, order_by)
+    res.json(movies)
 })
 
 //error handling
