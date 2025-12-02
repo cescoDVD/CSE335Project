@@ -8,7 +8,8 @@ app.use(express.static('frontend'));
 
 //get all entries
 app.get("/movies", async (req,res) => {
-    const movies = await getMovies()
+    const order_by = req.params.order_by ? req.params.genre : "none"
+    const movies = await getMovies(order_by)
     res.json(movies)
 })
 //get 1 entry
