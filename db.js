@@ -19,6 +19,9 @@ export async function getMovies(order_by) {
   else if (order_by == "DESC"){
     const [rows] = await pool.query("SELECT * FROM G9.movies ORDER by title DESC")
   }
+  else {
+    const [rows] = await pool.query("SELECT * FROM G9.movies")
+  }
 //const rows = result[0]
   return rows
 }
