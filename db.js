@@ -27,9 +27,14 @@ export async function getMovies(order_by) {
 }
 
 export async function getGenre(genre, order_by) {
-
-  const [rows] = await pool.query("SELECT * FROM G9.movies WHERE genre = ?", [genre])
-  return rows
+  if (order_by == "ASC"){
+    const [rows] = await pool.query("SELECT * FROM G9.movies WHERE genre = ? ORDER BY title ASC", [genre])}
+  else if (order_by == "DESC"){
+    const [rows] = await pool.query("SELECT * FROM G9.movies WHERE genre = ? ORDER BY title DESC", [genre])
+  }
+  else {const [rows] = await pool.query("SELECT * FROM G9.movies WHERE GENRE = ?", [genre])}
+  
+    return rows
 
 }
 
