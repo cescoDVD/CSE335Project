@@ -13,27 +13,30 @@ const pool = mysql.createConnection({
 }).promise();
 
 //function to get all movies
-export async function getMovies(order_by) {
-  if (order_by === "ASC"){
-    const [rows] = await pool.query(`SELECT * FROM G9.movies ORDER by title ASC`)
+export async function getMovies() {
+ 
+  const [rows] = await pool.query(`SELECT * FROM G9.movies`)
+  return rows[0]
+}
+
+export async function orderBy(order) {
+  console.log(order)
+  if (order == "ASC"){
+    const [rows] = await pool.query(`SELECT * FROM G9.movies ORDER BY title ASC`)
+  } else if (order == "DESC") {
+    const [rows] = await pool.query(`SELECT * G9.FROM movies ORDER BY title DESC`)
   }
-  else if (order_by === "DESC"){
-    const [rows] = await pool.query(`SELECT * FROM G9.movies ORDER by title DESC`)
-  }
-  else {
-    const [rows] = await pool.query(`SELECT * FROM G9.movies`)
-  }
-//const rows = result[0]
+  console.log(rows[0])
   return rows[0]
 }
 
 export async function getGenre(genre, order_by) {
   if (order_by === "ASC"){
-    const [rows] = await pool.query(`SELECT * FROM G9.movies WHERE genre = ? ORDER BY title ASC`, [genre])}
+    const [rows] = await pool.query(`SELECT * FROM movies WHERE genre = ? ORDER BY title ASC`, [genre])}
   else if (order_by === "DESC"){
-    const [rows] = await pool.query(`SELECT * FROM G9.movies WHERE genre = ? ORDER BY title DESC`, [genre])
+    const [rows] = await pool.query(`SELECT * FROM movies WHERE genre = ? ORDER BY title DESC`, [genre])
   }
-  else {const [rows] = await pool.query(`SELECT * FROM G9.movies WHERE GENRE = ?`, [genre])}
+  else {const [rows] = await pool.query(`SELECT * FROM movies WHERE GENRE = ?`, [genre])}
   
     return rows[0]
 
@@ -41,11 +44,11 @@ export async function getGenre(genre, order_by) {
 
 export async function getByDirector(director, order_by){
   if (order_by === "ASC"){
-    const [rows] = await pool.query(`SELECT * FROM G9.movies WHERE director = ? ORDER BY title ASC`, [director])}
+    const [rows] = await pool.query(`SELECT * FROM movies WHERE director = ? ORDER BY title ASC`, [director])}
   else if (order_by === "DESC"){
-    const [rows] = await pool.query(`SELECT * FROM G9.movies WHERE director = ? ORDER BY title DESC`, [director])}
+    const [rows] = await pool.query(`SELECT * FROM movies WHERE director = ? ORDER BY title DESC`, [director])}
   else {
-    const [rows] = await pool.query("SELECT * FROM G9.movies WHERE director = ?", [director])
+    const [rows] = await pool.query("SELECT * FROM movies WHERE director = ?", [director])
   }
   return rows[0]
 }

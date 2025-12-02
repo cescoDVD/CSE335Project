@@ -1,15 +1,20 @@
 import express from 'express'
 
-import  {getMovies, getMovie, getGenre, getByDirector}  from './db.js'
+import  {getMovies, getMovie, getGenre, getByDirector, orderBy}  from './db.js'
 
 const app =  express()
 
 app.use(express.static('frontend'));
 
 //get all entries
-app.get("/movies", async (req,res) => {
-    const order_by = req.params.order_by ? req.params.genre : "none"
-    const movies = await getMovies(order_by)
+app.get("/movies/", async (req,res) => {
+    const movies = await getMovies();
+    res.json(movies);
+})
+
+app.get("movies/:order_by", async (req,res) => {
+    const order_by = req.params.order_by
+    const movies = await orderBy(order_by)
     res.json(movies)
 })
 //get 1 entry
@@ -21,7 +26,7 @@ app.get("/movies/:eidr", async (req,res) => {
 
 app.get("movies/:genre", async (req,res)=> {
     const genre = req.params.genre
-    const order_by = req.params.order_by ? req.params.genre : "none"
+    const order_by = req.params.order_by ? req.params.genre : ""
     const movies = await getGenre(genre, order_by)
     res.json(movies)
 })
