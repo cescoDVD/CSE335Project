@@ -28,19 +28,19 @@ export async function orderBy(order) {
   return rows
 }
 
-export async function getGenre(genre, order_by) {
+export async function getGenre(genre) {
   if (order_by === "ASC"){
-    const [rows] = await pool.query(`SELECT * FROM movies WHERE genre = ? ORDER by title ASC`, [genre])}
+    const [rows] = await pool.query(`SELECT * FROM G9.movies WHERE genre = ? ORDER by title ASC`, [genre])}
   else if (order_by === "DESC"){
-    const [rows] = await pool.query(`SELECT * FROM movies WHERE genre = ? ORDER by title DESC`, [genre])
+    const [rows] = await pool.query(`SELECT * FROM G9.movies WHERE genre = ? ORDER by title DESC`, [genre])
   }
-  else {const [rows] = await pool.query(`SELECT * FROM movies WHERE GENRE = ?`, [genre])}
+  else {const [rows] = await pool.query(`SELECT * FROM G9.movies WHERE GENRE = ?`, [genre])}
   
     return rows[0]
 
 }
 
-export async function getByDirector(director, order_by){
+export async function getByDirector(director){
   if (order_by === "ASC"){
     const [rows] = await pool.query(`SELECT * FROM movies WHERE director = ? ORDER by title ASC`, [director])}
   else if (order_by === "DESC"){
@@ -58,5 +58,5 @@ export async function getMovie(eidr) {
     FROM movies
     WHERE eidr = ?
     `, [eidr])
-  return rows[0]
+  return rows
 }
