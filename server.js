@@ -47,8 +47,6 @@ app.use((err, req, res, next) => {
 app.listen(8080, () => {
     console.log('Server is running on port 8080')
 })
-import { getMovies } from './db.js';
-getMovies().then(movies => console.log(movies))
-           .catch(err => console.error(err));
+
 
 
