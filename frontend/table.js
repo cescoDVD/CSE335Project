@@ -1,7 +1,5 @@
 console.log('table.js loaded');
 
-
-
 async function loadMovies() {
   try {
     const eidr = document.getElementById('eidr').value.trim();
@@ -12,9 +10,9 @@ async function loadMovies() {
     console.log(eidr);
     if (eidr == "" && genre == ""){
       res = await fetch('/movies');
-    } else if (eidr != null){
+    } else if (eidr != ""){
       res = await fetch(`/movies/?:eidr=${eidr}`);
-    } else if (eidr == null && genre != null){
+    } else if (eidr == "" && genre != ""){
       res = await fetch(`/movies/?:genre=${genre}`);
     }
 
