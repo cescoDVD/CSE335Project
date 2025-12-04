@@ -11,7 +11,7 @@ async function loadMovies() {
     if (eidr == "" && genre == ""){
       res = await fetch('/movies');
     } else if (eidr != "" && genre == ""){
-      res = await fetch(`/movies/:eidr=${eidr}`);
+      res = await fetch(`/movies/${eidr}`);
     } else if (eidr == "" && genre != ""){
       res = await fetch(`/movies/:genre=${genre}`);
     } else{

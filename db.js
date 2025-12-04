@@ -69,5 +69,5 @@ export async function getMovie(eidr) {
     FROM movies
     WHERE eidr = ?
     `, [eidr])
-  return rows[0]
+  return rows
 }
