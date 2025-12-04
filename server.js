@@ -7,7 +7,7 @@ const app =  express()
 app.use(express.static('frontend'));
 
 //get all entries
-app.get("/movies/", async (req,res) => {
+app.get("/movies", async (req,res) => {
     const movies = await getMovies();
     res.json(movies);
 })
@@ -16,7 +16,7 @@ app.get("movies/:order_by", async (req,res) => {
     const order_by = req.params.order_by
     const movies = await orderBy(order_by)
     res.json(movies)
-})
+}) 
 //get 1 entry
 app.get("/movies/:eidr", async (req,res) => {
     const eidr = req.params.eidr

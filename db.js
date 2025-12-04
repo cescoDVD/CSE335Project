@@ -15,7 +15,18 @@ const pool = mysql.createConnection({
 //function to get all movies
 export async function getMovies() {
  
-  const [rows] = await pool.query(`SELECT * FROM G9.movies`)
+  const [rows] = await pool.query(` 
+  SELECT
+    m.eidr,
+    m.title,
+    m.datePublished,
+    m.genre,
+    d.name AS directorName
+  FROM G9.movies AS m
+  JOIN G9.director AS d
+  ON m.directorID = d.directorID
+  ORDER BY m.title ASC;
+`)
   return rows
 }
 
@@ -58,5 +69,5 @@ export async function getMovie(eidr) {
     FROM movies
     WHERE eidr = ?
     `, [eidr])
-  return rows
+  return rows[0]
 }

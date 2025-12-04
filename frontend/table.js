@@ -39,7 +39,7 @@ async function loadMovies() {
       tdGenre.textContent = movie.genre;
 
       const tdDirector = document.createElement('td');
-      tdDirector.textContent = movie.directorID;
+      tdDirector.textContent = movie.directorName;
 
       tr.appendChild(tdTitle);
       tr.appendChild(tdDate);
