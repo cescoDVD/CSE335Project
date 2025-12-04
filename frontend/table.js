@@ -33,7 +33,8 @@ async function loadMovies() {
       tdTitle.textContent = movie.title;
 
       const tdDate = document.createElement('td');
-      tdDate.textContent = movie.datePublished;
+      //cuts hours from date data type when displaying
+      tdDate.textContent = String(movie.datePublished).slice(0,10);
 
       const tdGenre = document.createElement('td');
       tdGenre.textContent = movie.genre;
