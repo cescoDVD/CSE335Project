@@ -19,7 +19,7 @@ app.get("movies/:order_by", async (req,res) => {
 }) 
 //get 1 entry
 app.get("/movies/:eidr", async (req,res) => {
-    const eidr = req.params.eidr
+    const eidr = req.params.eidr ? req.params.eidr : ""
     const movie = await getMovie(eidr)
     res.json(movie)
 })
