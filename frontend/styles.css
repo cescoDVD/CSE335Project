@@ -64,8 +64,8 @@ main, table {
 }
 
 .table-container {
-  width: 80%;          
-  max-height: 400px;   
+  width: 95%;          
+  max-height: 410px;   
   margin: 100px auto;     
   overflow-y: auto;    /* vertical scrollbar when content exceeds max height */
   overflow-x: auto;    /* horizontal scrollbar if table is wider */

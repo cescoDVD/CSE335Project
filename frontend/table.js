@@ -1,5 +1,6 @@
 console.log('table.js loaded');
 
+
 async function loadMovies() {
   try {
     const eidr = document.getElementById('eidr').value;
@@ -13,9 +14,9 @@ async function loadMovies() {
     } else if (eidr != "" && genre == ""){
       res = await fetch(`/movies/${eidr}`);
     } else if (eidr == "" && genre != ""){
-      res = await fetch(`/movies/:genre=${genre}`);
+      res = await fetch(`/movies/${genre}`);
     } else{
-      res = await fetch(`/movies/${eidr}`);
+      res = await fetch(`/movies`);
     }
 
 
@@ -32,6 +33,9 @@ async function loadMovies() {
       const tdTitle = document.createElement('td');
       tdTitle.textContent = movie.title;
 
+      const tdEidr = document.createElement('td');
+      tdEidr.textContent = '10.5240/' + String(movie.eidr);
+
       const tdDate = document.createElement('td');
       //cuts hours from date data type when displaying
       tdDate.textContent = String(movie.datePublished).slice(0,10);
@@ -43,6 +47,7 @@ async function loadMovies() {
       tdDirector.textContent = movie.directorName;
 
       tr.appendChild(tdTitle);
+      tr.appendChild(tdEidr);
       tr.appendChild(tdDate);
       tr.appendChild(tdGenre);
       tr.appendChild(tdDirector);
